@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePharma-asp-mvc", "ePharma-asp-mvc.csproj", "{95AC0C04-97C0-4CAC-ADCF-54331E455511}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95AC0C04-97C0-4CAC-ADCF-54331E455511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AC0C04-97C0-4CAC-ADCF-54331E455511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AC0C04-97C0-4CAC-ADCF-54331E455511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AC0C04-97C0-4CAC-ADCF-54331E455511}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {094E0741-AA68-43E2-8208-D43DEFCA1BD9}
+	EndGlobalSection
+EndGlobal
