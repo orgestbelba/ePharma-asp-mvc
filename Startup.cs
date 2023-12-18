@@ -1,4 +1,5 @@
 using ePharma_asp_mvc.Data;
+using ePharma_asp_mvc.Data.Services;
 using ePharma_asp_mvc.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,9 @@ namespace ePharma_asp_mvc
         {
             //Db context configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //Configuring Services
+            services.AddScoped<IProductsService, ProductsService>();
 
             //Authentication and authorization
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();

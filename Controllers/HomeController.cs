@@ -1,4 +1,5 @@
 ﻿using ePharma_asp_mvc.Data;
+using ePharma_asp_mvc.Data.Services;
 using ePharma_asp_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,18 +15,52 @@ namespace ePharma_asp_mvc.Controllers
     public class HomeController : Controller
     {
 
-        private readonly AppDbContext _context;
+        private readonly IProductsService _service;
 
-        public HomeController(AppDbContext context)
+        public HomeController(IProductsService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var data = await _context.Products.ToListAsync();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
+
+        public async Task<IActionResult> Shop()
+        {
+            var data = await _service.GetAllAsync();
+            return View(data);
+        }
+
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var data = await _service.Search(searchString);
+            return View("Shop", data);
+        }
+
+        public async Task<IActionResult> Sort(string order)
+        {
+            var data = await _service.Sort(order);
+            return View("Shop", data);
+        }
+
+        [HttpGet]
+        public IActionResult Filter(int? minPrice, int? maxPrice)
+        {
+            var data = _service.Filter(minPrice, maxPrice);
+            return View("Shop", data);
+        }
+
+
+
+        public async Task<IActionResult> SingleProduct(int id)
+        {
+            var data = await _service.GetByID(id);
+            return View(data);
+        }
+
         public IActionResult Privacy()
         {
             return View();
