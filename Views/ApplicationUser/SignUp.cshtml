@@ -1,0 +1,74 @@
+﻿@using ePharma_asp_mvc.Data.ViewModels;
+
+@model SignUpViewModel;
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<style>
+    .signup-container {
+        background: #e9e9e9; /* Neutral background color */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+
+@if (TempData["Error"] != null)
+{
+    <div class="col-md-12 alert alert-danger">
+        <span><b>Sorry!</b> - @TempData["Error"] </span>
+    </div>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="signup-container">
+                <div class="card-header bg-primary text-white">
+                    <h4>Sign Up</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="SignUp" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FirstName">First Name:</label>
+                            <input asp-for="FirstName" class="form-control" required>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName">Last Name:</label>
+                            <input asp-for="LastName" class="form-control" required>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName">Username:</label>
+                            <input asp-for="UserName" class="form-control" required>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EmailAddress">Email:</label>
+                            <input asp-for="EmailAddress" class="form-control" required>
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password">Password:</label>
+                            <input asp-for="Password" class="form-control" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword">Confirm Password:</label>
+                            <input asp-for="ConfirmPassword" class="form-control" required>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary btn-block">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />

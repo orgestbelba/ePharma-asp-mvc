@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
     <link href="~/css/aos.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 <body>
@@ -72,9 +73,11 @@
                             <span class="icon-shopping-bag"></span>
                             <span class="number">2</span>
                         </a>
-                        <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none">
-                            <span class="icon-menu"></span>
+                        <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-1 py-1">
+                            <span class="fas fa-sign-in-alt"></span>
+                            <span>Log in</span>
                         </a>
+
                     </div>
                 </div>
             </div>

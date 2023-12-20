@@ -1,0 +1,55 @@
+﻿@using ePharma_asp_mvc.Data.ViewModels;
+
+@model LogInViewModel;
+
+@{
+    ViewData["Title"] = "Log in your account";
+}
+
+<style>
+    /* Additional custom styles */
+    .login-container {
+        background: #f4f4f4;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+@if (TempData["Error"] != null)
+{
+    <div class="col-md-12 alert alert-danger">
+        <span><b>Sorry!</b> - @TempData["Error"] </span>
+    </div>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-container">
+                <div class="card-header bg-primary text-white">
+                    <h4>LogIn</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="LogIn" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="EmailAddress">Email:</label>
+                            <input asp-for="EmailAddress" class="form-control" required>
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password">Password:</label>
+                            <input asp-for="Password" class="form-control" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <button type="submit" value="LogIn" class="btn btn-primary btn-block">Log In</button>
+                    </form>
+                    <a class="btn btn-outline-primary btn-block mt-3" asp-controller="ApplicationUser" asp-action="SignUp">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
