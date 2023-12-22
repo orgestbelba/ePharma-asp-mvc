@@ -46,15 +46,6 @@ namespace ePharma_asp_mvc.Controllers
             return View("Shop", data);
         }
 
-        [HttpGet]
-        public IActionResult Filter(int? minPrice, int? maxPrice)
-        {
-            var data = _service.Filter(minPrice, maxPrice);
-            return View("Shop", data);
-        }
-
-
-
         public async Task<IActionResult> SingleProduct(int id)
         {
             var data = await _service.GetByID(id);

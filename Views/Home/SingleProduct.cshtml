@@ -41,7 +41,7 @@
 
                 </div>*@
 
-                <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+                <p><a asp-controller="Order" asp-action="AddToShoppingCart" asp-route-id="@Model.Id" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
 
                 <div class="mt-5">
                     <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">

@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+@inject UserManager<ApplicationUser> UserManager;
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-controller="ApplicationUser" asp-action="LogOut" class="btn btn-outline-primary px-1 py-1">
+        <span class="fas fa-sign-in-alt"></span>
+        <span>Sign Out</span>
+    </a>
+}
+else
+{
+    <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-1 py-1">
+        <span class="fas fa-sign-in-alt"></span>
+        <span>Sign In</span>
+    </a>
+}

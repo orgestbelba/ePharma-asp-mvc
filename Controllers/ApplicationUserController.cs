@@ -108,7 +108,7 @@ namespace ePharma_asp_mvc.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Posts");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

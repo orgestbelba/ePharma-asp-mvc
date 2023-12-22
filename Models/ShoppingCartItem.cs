@@ -12,7 +12,6 @@ namespace ePharma_asp_mvc.Models
         [Key]
         public int Id { get; set; }
         public int Quantity { get; set; }
-        public double Price { get; set; }
 
         //Product
         public int ProductId { get; set; }

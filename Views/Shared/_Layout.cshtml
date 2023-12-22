@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ePharma_asp_mvc</title>
+    <title>@ViewData["Title"] - ePharma</title>
 
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/fonts/icomoon/style.css" rel="stylesheet" />
@@ -36,7 +36,7 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="logo">
                         <div class="site-logo">
-                            <a href="index.html" class="js-logo-clone">Pharma</a>
+                            <a asp-controller="Home" asp-action="Index" class="js-logo-clone">Pharma</a>
                         </div>
                     </div>
                     <div class="main-nav d-none d-lg-block">
@@ -69,14 +69,10 @@
                     </div>
                     <div class="icons">
                         <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-                        <a href="cart.html" class="icons-btn d-inline-block bag">
-                            <span class="icon-shopping-bag"></span>
-                            <span class="number">2</span>
-                        </a>
-                        <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-1 py-1">
-                            <span class="fas fa-sign-in-alt"></span>
-                            <span>Log in</span>
-                        </a>
+
+                        @await Component.InvokeAsync("ShoppingCartCount")
+
+                        <partial name="_Identity.cshtml"> </partial>
 
                     </div>
                 </div>
@@ -155,12 +151,10 @@
                 <div class="row pt-5 mt-5 text-center">
                     <div class="col-md-12">
                         <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
                             with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
                                                                                      class="text-primary">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
 
