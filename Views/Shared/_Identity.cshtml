@@ -1,17 +1,29 @@
 ﻿@using Microsoft.AspNetCore.Identity;
-
 @inject UserManager<ApplicationUser> UserManager;
 
-@if (User.Identity.IsAuthenticated)
+
+@{
+    //Getting the logged in user's First Name.
+    var isAuthenticated = User.Identity.IsAuthenticated;
+    var user = isAuthenticated ? await UserManager.GetUserAsync(User) : null;
+    var firstName = user?.FirstName ?? "Guest";
+}
+
+
+@if (isAuthenticated)
 {
-    <a asp-controller="ApplicationUser" asp-action="LogOut" class="btn btn-outline-primary px-1 py-1">
-        <span class="fas fa-sign-in-alt"></span>
-        <span>Sign Out</span>
-    </a>
+    <li class="has-children" style="margin-left : 270px;">
+        <a>Hello <span style="font-weight: bold;">@firstName</span> !</a>
+        <ul class="dropdown">
+            <li class="has-children">
+            <li><a href="#">My Orders</a></li>
+            <li><a asp-controller="ApplicationUser" asp-action="LogOut">Log Out</a></li>
+        </ul>
+    </li>
 }
 else
 {
-    <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-1 py-1">
+    <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-2 py-1" style="margin-left: 400px;">
         <span class="fas fa-sign-in-alt"></span>
         <span>Sign In</span>
     </a>

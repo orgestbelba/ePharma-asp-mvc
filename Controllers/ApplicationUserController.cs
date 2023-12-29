@@ -41,7 +41,6 @@ namespace ePharma_asp_mvc.Controllers
             var data = new LogInViewModel();
             return View(data);
         }
-
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel LogInData)
         {
@@ -75,7 +74,6 @@ namespace ePharma_asp_mvc.Controllers
             var data = new SignUpViewModel();
             return View(data);
         }
-
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel RegisterData)
         {
@@ -92,7 +90,6 @@ namespace ePharma_asp_mvc.Controllers
             {
                 FirstName = RegisterData.FirstName,
                 LastName = RegisterData.LastName,
-                UserName = RegisterData.UserName,
                 Address = RegisterData.Address,
                 Email = RegisterData.EmailAddress
             };
