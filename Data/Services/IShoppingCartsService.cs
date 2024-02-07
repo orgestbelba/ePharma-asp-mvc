@@ -13,5 +13,6 @@ namespace ePharma_asp_mvc.Data.Services
         Task RemoveItemFromShoppingCart(int id);
         Task IncreaseItemQuantity(int id);
         Task DecreaseItemQuantity(int id);
+        Task ClearShoppingCartItems(string userId);
     }
 }

@@ -44,6 +44,11 @@
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+                            <label asp-for="UserName">User Name:</label>
+                            <input asp-for="UserName" class="form-control" required>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
                             <label asp-for="Address">Address:</label>
                             <input asp-for="Address" class="form-control" required>
                             <span asp-validation-for="Address" class="text-danger"></span>
@@ -62,6 +67,9 @@
                             <label asp-for="ConfirmPassword">Confirm Password:</label>
                             <input asp-for="ConfirmPassword" class="form-control" required>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <p>
+                                The password should contain at least 6 characters, one digit, uppercase, lowercase letters and at least one non-alphanumeric character
+                            </p>
                         </div>
                         <button type="submit" class="btn btn-outline-primary btn-block">Sign Up</button>
                     </form>

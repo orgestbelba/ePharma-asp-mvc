@@ -35,6 +35,7 @@ namespace ePharma_asp_mvc
             //Configuring Services
             services.AddScoped<IProductsService, ProductsService>();
             services.AddScoped<IShoppingCartsService, ShoppingCartsService>();
+            services.AddScoped<IOrdersService, OrdersService>();
 
             //Authentication and authorization
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();

@@ -52,10 +52,5 @@ namespace ePharma_asp_mvc.Controllers
             return View(data);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
     }
 }

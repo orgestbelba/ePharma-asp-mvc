@@ -80,18 +80,41 @@ namespace ePharma_asp_mvc.Controllers
             if (!ModelState.IsValid)
                 return View(RegisterData);
 
+            //Check for username
+            var userName = await _userManager.FindByNameAsync(RegisterData.UserName);
+            if (userName != null)
+            {
+                TempData["Error"] = "This username is taken!";
+                return View(RegisterData);
+            }
+
+            //Check for e-mail
             var user = await _userManager.FindByEmailAsync(RegisterData.EmailAddress);
             if (user != null)
             {
-                TempData["Error"] = "This email is already in use!";
+                TempData["Error"] = "This email is already registered!";
                 return View(RegisterData);
             }
+
+            // Check for password format
+            var passwordValidator = _userManager.PasswordValidators.First();
+            var passwordValidationResult = await passwordValidator.ValidateAsync(_userManager, null, RegisterData.Password);
+
+            if (!passwordValidationResult.Succeeded)
+            {
+                // Password format is not valid
+                TempData["Error"] = "Invalid password format. " +
+                                   "Please ensure your password meets the security requirements.";
+                return View(RegisterData);
+            }
+
             var newUser = new ApplicationUser()
             {
                 FirstName = RegisterData.FirstName,
                 LastName = RegisterData.LastName,
                 Address = RegisterData.Address,
-                Email = RegisterData.EmailAddress
+                Email = RegisterData.EmailAddress,
+                UserName = RegisterData.UserName
             };
 
             var newUserResponse = await _userManager.CreateAsync(newUser, RegisterData.Password);

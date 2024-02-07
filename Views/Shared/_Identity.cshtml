@@ -6,7 +6,7 @@
     //Getting the logged in user's First Name.
     var isAuthenticated = User.Identity.IsAuthenticated;
     var user = isAuthenticated ? await UserManager.GetUserAsync(User) : null;
-    var firstName = user?.FirstName ?? "Guest";
+    var firstName = user?.FirstName ?? "Guest"; //If not authenticated, User name will be Guest
 }
 
 
@@ -23,8 +23,12 @@
 }
 else
 {
-    <a asp-controller="ApplicationUser" asp-action="LogIn" class="btn btn-outline-primary px-2 py-1" style="margin-left: 400px;">
-        <span class="fas fa-sign-in-alt"></span>
-        <span>Sign In</span>
-    </a>
+    <li class="has-children" style="margin-left : 270px;">
+        <a>Hello <span style="font-weight: bold;">Guest</span> !</a>
+        <ul class="dropdown">
+            <li class="has-children">
+            <li><a asp-controller="ApplicationUser" asp-action="LogIn">Log In</a></li>
+            <li><a asp-controller="ApplicationUser" asp-action="SignUp">Sign Up</a></li>
+        </ul>
+    </li>
 }

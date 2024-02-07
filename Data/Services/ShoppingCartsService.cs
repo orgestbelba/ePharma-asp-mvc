@@ -106,5 +106,20 @@ namespace ePharma_asp_mvc.Data.Services
 
         }
 
+        public async Task ClearShoppingCartItems(string userId)
+        {
+            var shoppingCartId = _context.ShoppingCarts.FirstOrDefault(n => n.UserId == userId).Id;
+
+            var shoppingCartItems = await _context.ShoppingCartItems
+                .Where(item => item.ShoppingCartId == shoppingCartId)
+                .ToListAsync();
+
+            foreach (var shoppingCartItem in shoppingCartItems)
+            {
+                _context.ShoppingCartItems.Remove(shoppingCartItem);
+            }
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

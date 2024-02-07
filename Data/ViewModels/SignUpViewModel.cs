@@ -8,9 +8,16 @@ namespace ePharma_asp_mvc.Data.ViewModels
 {
     public class SignUpViewModel
     {
+        [Required(ErrorMessage = "First name is required!")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is required!")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "UserName is required!")]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage = "Address is required!")]
         public string Address { get; set; }
 
         [Display(Name = "Email Address")]
