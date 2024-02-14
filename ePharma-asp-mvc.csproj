@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\fonts\icomoon\demo-files\demo.js" />
     <None Include="wwwroot\fonts\icomoon\fonts\icomoon.svg" />
   </ItemGroup>
 
