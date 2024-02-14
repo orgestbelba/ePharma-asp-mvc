@@ -22,6 +22,7 @@ namespace ePharma_asp_mvc.Controllers
         [Obsolete]
         private readonly IHostingEnvironment Environment;
 
+        [Obsolete]
         public OrderController(IProductsService productsService, IShoppingCartsService shoppingCartsService, IOrdersService ordersService, UserManager<ApplicationUser> userManager, IHostingEnvironment _environment)
         {
             _productsService = productsService;
