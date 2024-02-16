@@ -1,4 +1,5 @@
 ﻿using ePharma_asp_mvc.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,9 +50,29 @@ namespace ePharma_asp_mvc.Data.Services
 
         }
 
-        public Task<IEnumerable<OrderItem>> GetAllOrderItemsAsync()
+        public async Task<IEnumerable<OrderItem>> GetAllOrderItemsAsync(string userId)
         {
-            throw new NotImplementedException();
+            var order = _context.Orders.FirstOrDefault(n => n.UserId == userId);
+
+            if (order == null)
+            {
+                // Return an empty list or handle the case where the shopping cart is not found.
+                return Enumerable.Empty<OrderItem>();
+            }
+
+            var data = await _context.OrderItems
+                .Where(n => n.OrderId == order.Id)
+                .Include(p => p.Product).ToListAsync();
+
+            return data;
+        }
+
+        public async Task<IEnumerable<Order>> GetAllOrdersAsync(string userId)
+        {
+            var data = await _context.Orders.
+                Where(n => n.UserId == userId).ToListAsync();
+
+            return data;
         }
     }
 }

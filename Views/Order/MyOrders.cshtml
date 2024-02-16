@@ -1,0 +1,67 @@
+﻿@model List<Order>
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0">
+                <a asp-controller="Home" asp-action="Index">Home</a> <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">Cart</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <form class="col-md-12" method="post">
+                <div class="site-blocks-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Order Id</th>
+                                <th class="product-name">Total Price</th>
+                                <th class="product-price">Time Ordered</th>
+                                <th class="product-quantity">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                             {
+                                <tr>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">@item.Id</h2>
+                                    </td>
+                                    <td class="product-price">
+                                        <h2 class="h5 text-black">$@item.TotalPrice</h2>
+                                    </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">@item.TimeOrdered.ToString("dd MMMM, yyyy")</h2>
+                                    </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">@item.Status</h2>
+                                    </td>
+                                </tr>
+                             }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <a type="submit" asp-controller="Home" asp-action="Shop" class="btn btn-outline-primary btn-md btn-block">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -168,5 +168,24 @@ namespace ePharma_asp_mvc.Controllers
 
         }
 
+        public async Task<IActionResult> MyOrders()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentUser = await _userManager.GetUserAsync(User);
+
+                var data = await _ordersService.GetAllOrdersAsync(currentUser.Id);
+
+                var orders = data.ToList();
+
+                if (data == null)
+                {
+                    return View();
+                }
+                return View(orders);
+            }
+            return View();
+        }
+
     }
 }
