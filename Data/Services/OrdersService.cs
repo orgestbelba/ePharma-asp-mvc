@@ -50,18 +50,10 @@ namespace ePharma_asp_mvc.Data.Services
 
         }
 
-        public async Task<IEnumerable<OrderItem>> GetAllOrderItemsAsync(string userId)
+        public async Task<IEnumerable<OrderItem>> GetAllOrderItemsAsync(int orderId)
         {
-            var order = _context.Orders.FirstOrDefault(n => n.UserId == userId);
-
-            if (order == null)
-            {
-                // Return an empty list or handle the case where the shopping cart is not found.
-                return Enumerable.Empty<OrderItem>();
-            }
-
             var data = await _context.OrderItems
-                .Where(n => n.OrderId == order.Id)
+                .Where(n => n.OrderId == orderId)
                 .Include(p => p.Product).ToListAsync();
 
             return data;
@@ -74,5 +66,6 @@ namespace ePharma_asp_mvc.Data.Services
 
             return data;
         }
+
     }
 }

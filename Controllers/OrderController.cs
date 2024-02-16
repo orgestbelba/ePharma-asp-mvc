@@ -187,5 +187,22 @@ namespace ePharma_asp_mvc.Controllers
             return View();
         }
 
+        public async Task<IActionResult> OrderDetails(int id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var data = await _ordersService.GetAllOrderItemsAsync(id);
+
+                var orders = data.ToList();
+
+                if (data == null)
+                {
+                    return View();
+                }
+                return View(orders);
+            }
+            return View();
+        }
+
     }
 }

@@ -1,7 +1,7 @@
-﻿@model List<Order>
+﻿@model List<OrderItem>
 
 @{
-    ViewData["Title"] = "My Orders";
+    ViewData["Title"] = "Order Details";
 }
 
 <div class="bg-light py-3">
@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-12 mb-0">
                 <a asp-controller="Home" asp-action="Index">Home</a> <span class="mx-2 mb-0">/</span>
-                <strong class="text-black">Orders</strong>
+                <strong class="text-black">Order Details</strong>
             </div>
         </div>
     </div>
@@ -23,11 +23,11 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="product-thumbnail">Order Id</th>
-                                <th class="product-name">Total Price</th>
-                                <th class="product-price">Time Ordered</th>
-                                <th class="product-quantity">Status</th>
-                                <th class="product-remove"></th>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-total">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,21 +35,17 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td class="product-name">
-                                        <h2 class="h5 text-black">@item.Id</h2>
+                                    <td class="product-thumbnail">
+                                        <img src="@Url.Content(item.Product.ImagePath)" alt="Image" class="img-fluid">
                                     </td>
+                                    <td class="product-name">
+                                        <h2 class="h5 text-black">@item.Product.Name</h2>
+                                    </td>
+                                    <td>$@item.Product.Price</td>
                                     <td class="product-price">
-                                        <h2 class="h5 text-black">$@item.TotalPrice</h2>
+                                        <h2 class="h5 text-black">$@item.Quantity</h2>
                                     </td>
-                                    <td class="product-name">
-                                        <h2 class="h5 text-black">@item.TimeOrdered.ToString("dd MMMM, yyyy")</h2>
-                                    </td>
-                                    <td class="product-name">
-                                        <h2 class="h5 text-black">@item.Status</h2>
-                                    </td>
-                                    <td>
-                                        <a asp-controller="Order" asp-action="OrderDetails" asp-route-id="@item.Id" class="btn btn-primary height-auto btn-sm" >Order Details</a>
-                                    </td>
+                                    <td>$@(item.Product.Price*item.Quantity)</td>
                                 </tr>
                             }
                         </tbody>
