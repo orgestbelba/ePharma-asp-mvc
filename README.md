@@ -29,6 +29,8 @@ Welcome to ePharma, an online pharmacy shop web application built with ASP.NET M
 4. **Set up the Database**: Ensure your connection string is configured correctly in `appsettings.json` and then run `dotnet ef database update` to apply migrations.
 5. **Run the Application**: `dotnet run`
 6. **Access the Application**: Open your browser and navigate to `https://localhost:5001` to start using the ePharma web app.
+7. **Seeded database**: Upon running the application, seed data will automatically populate your database.
+8. **Test Account**: Optionally, you can use the following credentials for initial login: (e-mail: user1@gmail.com ; password: Coding@1234?)
 
 ## Contributing
 
