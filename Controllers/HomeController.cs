@@ -52,5 +52,14 @@ namespace ePharma_asp_mvc.Controllers
             return View(data);
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }
