@@ -49,7 +49,7 @@ namespace ePharma_asp_mvc.Data.Services
         }
 
         public async Task<IEnumerable<Product>> Search(string searchString)
-        {    
+        {
             var data = await GetAllAsync();
 
             if (!string.IsNullOrEmpty(searchString))

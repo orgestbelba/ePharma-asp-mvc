@@ -28,7 +28,7 @@ namespace ePharma_asp_mvc.Data.Services
 
             double total = 0;
 
-            foreach(var item in shoppingCartItems) //Inserting all the current ShoppingCart items to the order.
+            foreach (var item in shoppingCartItems) //Inserting all the current ShoppingCart items to the order.
             {
                 var orderItem = new OrderItem
                 {

@@ -1,17 +1,18 @@
 ﻿using ePharma_asp_mvc.Data.Services;
 using ePharma_asp_mvc.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ePharma_asp_mvc.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
 
@@ -155,7 +156,7 @@ namespace ePharma_asp_mvc.Controllers
                 await _ordersService.CreateOrder(currentUser.Id, shoppingCartItems, prescriptionPhotoPath);
 
                 // Clear the shoppingCart after the order is created.
-                await _shoppingCartsService.ClearShoppingCartItems(currentUser.Id); 
+                await _shoppingCartsService.ClearShoppingCartItems(currentUser.Id);
 
                 return View("ThankYou");
             }

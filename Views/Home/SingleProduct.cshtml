@@ -27,20 +27,6 @@
                 <p> @Model.Description</p>
                 <p><strong class="text-primary h4">$@Model.Price</strong></p>
 
-                @*<div class="mb-5">
-                    <div class="input-group mb-3" style="max-width: 220px;">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder=""
-                               aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                    </div>
-
-                </div>*@
-
                 <p><a asp-controller="Order" asp-action="AddToShoppingCart" asp-route-id="@Model.Id" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
 
                 <div class="mt-5">

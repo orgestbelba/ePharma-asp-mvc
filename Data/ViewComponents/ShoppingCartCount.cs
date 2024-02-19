@@ -2,14 +2,12 @@
 using ePharma_asp_mvc.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ePharma_asp_mvc.Data.ViewComponents
 {
-    
+
     public class ShoppingCartCount : ViewComponent
     {
         private readonly IShoppingCartsService _shoppingCartsService;
@@ -24,7 +22,7 @@ namespace ePharma_asp_mvc.Data.ViewComponents
         {
             var currentUser = await _userManager.GetUserAsync(HttpContext.User);
 
-            if(currentUser == null)
+            if (currentUser == null)
             {
                 return View(0);
             }

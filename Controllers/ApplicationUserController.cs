@@ -1,14 +1,12 @@
 ﻿using ePharma_asp_mvc.Data;
+using ePharma_asp_mvc.Data.ViewModels;
 using ePharma_asp_mvc.Models;
+using ePharma_asp_mvc.Static;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ePharma_asp_mvc.Data.ViewModels;
-using ePharma_asp_mvc.Static;
 
 namespace ePharma_asp_mvc.Controllers
 {

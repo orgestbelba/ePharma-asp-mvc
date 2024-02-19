@@ -1,5 +1,3 @@
-using System;
-
 namespace ePharma_asp_mvc.Models
 {
     public class ErrorViewModel

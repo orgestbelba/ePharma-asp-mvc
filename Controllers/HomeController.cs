@@ -1,13 +1,5 @@
-﻿using ePharma_asp_mvc.Data;
-using ePharma_asp_mvc.Data.Services;
-using ePharma_asp_mvc.Models;
+﻿using ePharma_asp_mvc.Data.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ePharma_asp_mvc.Controllers
