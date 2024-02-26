@@ -53,6 +53,7 @@ namespace ePharma_asp_mvc.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> AddToShoppingCart(int id)
         {
 
