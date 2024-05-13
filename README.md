@@ -26,7 +26,7 @@ Welcome to ePharma, an online pharmacy shop web application built with ASP.NET M
 1. **Clone the Repository**: `git clone https://github.com/orgestbelba/ePharma-asp-mvc.git`
 2. **Navigate to the Project Directory**: `cd ePharma-asp-mvc`
 3. **Install Dependencies**: `dotnet restore`
-4. **Set up the Database**: Ensure your connection string is configured correctly in `appsettings.json` and then run `dotnet ef database update` to apply migrations.
+4. **Set up the Database**: Ensure your connection string is configured correctly in `appsettings.json` and then open the Package Manager Console and create a new migration by executing the command `add-migration cloneMigration`, then apply the migration by executing Update-Databaserun `dotnet ef database update` to apply migrations.
 5. **Run the Application**: `dotnet run`
 6. **Access the Application**: Open your browser and navigate to `https://localhost:5001` to start using the ePharma web app.
 7. **Seeded database**: Upon running the application, seed data will automatically populate your database.
